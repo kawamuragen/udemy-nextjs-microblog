@@ -1,5 +1,8 @@
 import Head from "next/head";
-import Link from "next/link";
+
+// 拡張子最後が「module.css」である必要がある
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
 
 const name = "Shin Code";
 export const siteTitle = "Next.js blog";
@@ -7,13 +10,13 @@ export const siteTitle = "Next.js blog";
 // Type "nfe"
 function Layout({ children }) {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
-        <Link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <img src="/images/profile.png" />
-        <h1>{name}</h1>
+      <header className={styles.header}>
+        <img src="/images/profile.png" className={utilStyles.borderCircle} />
+        <h1 className={utilStyles.heading2Xl}>{name}</h1>
       </header>
       <main>{children}</main>
     </div>
