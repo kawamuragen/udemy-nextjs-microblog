@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-import Layout from "../components/Layout";
+import Layout, { siteTitle } from "../components/Layout";
 import utileStyle from "../styles/utils.module.css";
 import { getPostsData } from "../lib/post";
 
@@ -36,7 +35,11 @@ export async function getServerSideProps(context) {
 // 外部のデータをSSGする場合に allPostsData を渡しておく
 export default function Home({ allPostsData }) {
   return (
-    <Layout>
+    // homeを渡した場合はアイコン画像を大きく表示する
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       <section className={utileStyle.headingMd}>
         <p>
           私はフルスタックエンジニアです/Udemy講師として活動しています/好きな言語はJavascriptです
